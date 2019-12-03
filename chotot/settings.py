@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-import django_heroku
+# import django_heroku
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
@@ -34,7 +34,7 @@ DEBUG = True
 LOGIN_URL = '/users/login'
 LOGIN_REDIRECT_URL = '/timraovat'
 LOGOUT_REDIRECT_URL = '/'
-ALLOWED_HOSTS = ['still-depths-49162.herokuapp.com']
+ALLOWED_HOSTS = ['still-depths-49162.herokuapp.com','127.0.0.1']
 
 
 # Application definition
