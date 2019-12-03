@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{% extends "base.html"%}
+{%load staticfiles%}
+{% block style%}
+<!-- <link rel="stylesheet" href="{% static "css/text.css"%}"> -->
+<!-- <link rel="stylesheet" href="{% static "css/bootstrap.css"%}"> -->
+{% endblock %}
+  {% block body_block%}
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="carousel">
+        <div id="carousel-id" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carousel-id" data-slide-to="0" class=""></li>
+            <li data-target="#carousel-id" data-slide-to="1" class=""></li>
+            <li data-target="#carousel-id" data-slide-to="2" class="active"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="item">
+                
+              <img class="images-carousel" src="{% static "images/slide.jpg"%}" alt="" srcset="" width="1800px">
+            </div>
+            <div class="item">
+              <img class="images-carousel" src="{% static "images/1.jpg"%}"  alt="" srcset="" width="1800px">
+            </div>
+            <div class="item active">
+              <img class="images-carousel" src="{% static "images/1.jpg"%}" alt="" srcset="" width="1800px">
+            </div>
+          </div>
+        </div>
+        <!--đóng carousel  -->
+      </div> <!-- đóng col  -->
+
+      <div class="container">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          {% if not user.is_authenticated %}
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                  <img class="img-banner" src="{% static "images/sub-banner.png"%}" alt="">
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                  <h4>Đăng nhập để không bỏ lỡ món hời giá tốt</h4>
+                    <div class="buttone">
+                      <a href="{% url 'login_register:login'%}"><button type="button" class="btn btn-warning">ĐĂNG NHẬP NGAY</button></a></div>
+                    <div class="buttonee">
+                      <a href="{% url 'login_register:register'%}">Đăng ký tài khoản</a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endif %}
+        </div> <!-- đóng col-->
+        <!-- đây là bắt đầu đổ dữ liệu category -->
+        <div iv class="panel panel-small" style="
+        margin-top: 0px;">
+          <br>
+          <h1 class="danhmuc">Khám phá danh mục</h1>
+          {% for categ in category%}
+          <a href="/timraovat?category={{categ.name}}">
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
+            <div class="panel-images">
+              <div class="minuscule">
+                <Span class="category" style="color: black;">{{categ.name}}</Span>
+              </div>
+              <img data-src="" alt="" class="opacity img-minuscule" style="opacity: 80%;" src= "{{ categ.pic.url }}"  width="200px" height="110px">
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </a>
+        <!-- đây là kết thúc đổ dữ liệu category -->
+      </div> <!-- đóng container-->
+    </div> <!-- đóng col ngoài-->
+  </div><!-- đóng col row-->
+  {% endblock %}

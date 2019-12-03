@@ -1,0 +1,120 @@
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modall {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 600px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+} 
+._khuvuc {
+  line-height: 45px;
+  margin: 0;
+  font-family: Verdana;
+  font-weight: bold;
+  font-size: 16px;
+  margin-left: 50px;
+}
+.text-center {
+  text-align: center;
+}
+._btnkhuvuc {
+  padding: 0 20px;
+  height: 45px;
+  background-color: #f4f4f4;
+}
+button.close {
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+}
+.close {
+  float: right;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+  color: #000 !important;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .2;
+  filter: alpha(opacity=20);
+}
+.modal-open .modal-content .body-modal-custom {
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+.modal-custom .custom ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.li_item {
+  -webkit-transition: opacity .5s ease-in;
+  transition: opacity .5s ease-in;
+  border-bottom: 1px solid #E5E5E5;
+  position: relative;
+  height: 45px;
+  cursor: pointer;
+}
+.li_item .a_item {
+  color: inherit;
+  text-decoration: inherit;
+  width: 100%;
+  position: absolute;
+  line-height: 45px;
+  padding: 0 15px 0px 15px;
+}
+.modal-custom .custom ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+span{
+  color: #000 !important;
+}

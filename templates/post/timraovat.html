@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+{% extends "base.html"%}
+{%load staticfiles%}
+{% load humanize %}
+{% load my_tags %}
+{% block style%}
+<link rel="stylesheet" href="{% static "css/timraovat.css"%}">
+<link rel="stylesheet" href="{% static "css/text.css"%}">
+<script src="{% static "js/text.js"%}"></script>
+{% endblock %}
+{% block body_block%}
+<div class="panel panel-default">
+  <div class="container">
+    <header>
+      <div id="rgpt-2" data-google-query-id="">
+        <div>
+          <img class="img-buyer" src="images/GamingCreator_Static1.2_728x90.png" alt="" width="750px" height="100px">
+        </div>
+      </div>
+      <div>
+        <h1 itemprop="name" class="muaban"> <strong>Mua bán, rao vặt nhanh chóng, uy tín tại Speeding Shopping Toàn
+            quốc</strong> </h1>
+      </div>
+    </header>
+
+    <main>
+      <div class="row no-margin">
+        <div class="col-md-8">
+          <form method="GET">
+            <div class=" hrSofa">
+              <input type="text" name="title" class="daymOP" autocomplete="off" placeholder="Tìm kiếm trên Chợ Tốt..." value="{{ request.GET.title }}">
+            </div>
+            <div class="row _3p">
+              <div class="col-xs-12 undefined">
+                <div class="row">
+                  <div class=" col-xs-12">
+                    <div class="col-xs-5 _aa">
+                      <span itemprop="name" class="toanquoc">Thương hiệu</span>
+                      <select class="form-control" name="brand">
+                          <option value=""></option>
+                        {% for brand in brand%}
+                        <option value="{{brand.name}}">{{brand.name}}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                    <div class="col-xs-7 _aa">
+                      <span itemprop="name" class="toanquoc">Bạn muốn</span>
+                      <select class="form-control" name="type" default="">
+                        <option value=""></option>
+                        <option value="ban">Mua</option>
+                        <option value="mua">Bán</option>
+                      </select>
+                    </div>
+                    <div class="col-xs-5 _aa">
+                      <span itemprop="name" class="toanquoc">Tất cả danh mục</span>
+                      <select class="form-control" name="category">
+                        <option value=""></option>
+                        {% for categ in category%}
+                        <option value="{{categ.name}}">{{categ.name}}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                    <div class="col-xs-7 _aa">
+                      <span itemprop="name" class="toanquoc">Sắp xếp theo</span>
+                      <select class="form-control" name="order_by">
+                        <option value=""></option>
+                        <option value="price">Từ thấp đến cao</option>
+                        <option value="-price">Từ cao đến thấp</option>
+                        <option value="-update_date">Mới nhất</option>
+                      </select>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <input class="button" type="submit" value="Tìm kiếm">
+          </form>
+          {% for post in posts%}
+          {% if post.state == "open" and post.user.is_active%}
+          <div class="pgjTolSNq4-L--tpQ7Xp5">
+            <!-- mở div đăng tin -->
+            <div class="ctStickyAdsListing">
+              <h3 class="ctAdListingTitle">
+                <li class="ctAdListingWrapper listView"><a rel="nofollow" class="ctAdListingItem" action="push"
+                    href="{% url 'post:baitinchitiet' post.id %}">
+                    <div class="ctAdLitingThumbnail"> <img alt="{{post.name}}"
+                        class="lazyload thumbnailImageListing" src="{{post.images.all.0.pic.url}}">
+                    </div>
+                    <div class="ctAdListingBody">
+                      <h3 class="ctAdListingTitle">{{post.title}}</h3>
+                      <div class="ctAdListingUpperBody"><span class="ctAdListingPrice">
+                          <span class="adPriceMobile320">{{post.price|intcomma}} đ</span></span>
+                      </div>
+                      <div class="cMFlmw">
+                        <div class="adItemType">
+                          <div class="cMFlmw"><i class="stickyAdIcon"></i><span>{{post.user.username}}</span></div><span
+                            class="delimeter"></span>
+                          <div class="cMFlmw"><i class="stickyAdIcon"></i><span>Bài viết được đăng cách đây
+                              {{post.create_date|timesince}}</span>
+                          </div>
+                        </div>
+                        <div class="clear"></div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+          {% if not posts%}
+          <div style="text-align:center;">
+              <svg width="100" height="100" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="15.6 37.6 80 50">
+                <path class="st0"
+                  d="M85.6 52.8s-5.1-7-13.2-6.6c-8.3-11.4-14.7-1.4-14.7-1.4-.6-.4-1.4-.6-2.2-.6-.8 0-1.5.2-2.2.6 0 0-6.4-10-14.7 1.4-8.1-.4-13.2 6.6-13.2 6.6-4.9 3-8.2 8.4-8.2 14.5 0 9.4 7.6 17 17 17 8.5 0 15.6-6.3 16.8-14.5 0 0 1.3 1.7 4.1 1.7s4.6-1.7 4.6-1.7C60.9 78 68 84.2 76.5 84.2c9.4 0 17-7.6 17-17 .3-6-3-11.4-7.9-14.4zM33.9 79.5c-6.4 0-11.6-5.2-11.6-11.6 0-6.4 5.2-11.6 11.6-11.6s11.6 5.2 11.6 11.6c.1 6.4-5.2 11.6-11.6 11.6zm42.9 0c-6.4 0-11.7-5.2-11.7-11.6 0-6.4 5.2-11.6 11.7-11.6 6.4 0 11.6 5.2 11.6 11.6 0 6.4-5.2 11.6-11.6 11.6z">
+                </path>
+                <path class="st0"
+                  d="M26.9 66.9c-.4-1-.6-2-.7-3-1.2 2.1-1.5 4.7-.6 7.1 1.6 4.3 6.5 6.5 10.8 4.9.9-.3 1.7-.8 2.4-1.4-5 .4-10-2.5-11.9-7.6zM70.7 66.9c-.4-1-.6-2-.7-3-1.2 2.1-1.5 4.7-.6 7.1 1.6 4.3 6.5 6.5 10.8 4.9.9-.3 1.7-.8 2.4-1.4-5 .4-10-2.5-11.9-7.6z">
+                </path>
+              </svg>
+              <div class="alert alert-warning">Bạn chưa có tin đăng cá nhân nào đang bán, thử đăng bán ngay.</div>
+            </div>
+          {% endif %}
+          <div style="text-align: center;">
+            {% if is_paginated %}
+            {% if page_obj.has_previous %}
+              <a href="/timraovat?{% param_replace page=1 %}">First</a>
+              {% if page_obj.previous_page_number != 1 %}
+                <a href="?{% param_replace page=page_obj.previous_page_number %}">Previous</a>
+              {% endif %}
+            {% endif %}
+
+          Page {{ page_obj.number }} of {{ paginator.num_pages }}
+
+            {% if page_obj.has_next %}
+              {% if page_obj.next_page_number != paginator.num_pages %}
+                <a href="/timraovat?{% param_replace page=page_obj.next_page_number %}">Next</a>
+              {% endif %}
+              <a href="/timraovat?{% param_replace page=paginator.num_pages %}">Last</a>
+            {% endif %}
+          <!-- <p>Objects {{ page_obj.start_index }}—{{ page_obj.end_index }}</p> -->
+            {% endif %}
+          </div>
+        </div> <!-- đóng col 8 -->
+
+
+        <div class="col-md-4">
+          <img src="images/sdk.png" alt="" width="300px">
+          <img src="images/qc1.gif" alt="">
+        </div> <!-- đóng col  4 -->
+      </div>
+    </main> <!-- đóng thẻ main -->
+  </div>
+</div><!--  -->
+<script src="{% static "js/text.js"%}"></script>
+{% endblock %}

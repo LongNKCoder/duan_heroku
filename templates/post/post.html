@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% extends "base.html"%}
+{%load staticfiles%}
+
+{% block style%}
+<link rel="stylesheet" href="{% static "css/timraovat.css"%}">
+<link rel="stylesheet" href="{% static "css/text.css"%}">
+<link rel="stylesheet" href="{% static "css/dangki.css"%}">
+<link rel="stylesheet" href="{% static "css/dangtin.css"%}">
+<script src="{% static "js/text.js"%}"></script>
+{% endblock %}
+{% block body_block%}
+<div>
+  <div class="_36tG76896bvCZ9jTEqerrE">
+    <div class="_3OM1ogaI9EXK1udHCHiMUc">
+      <div class="container">
+          {% if not form.instance.pk %}
+          <div class="text-center"><strong>ĐĂNG TIN</strong></div>
+          {% else %}
+          <div class="text-center"><strong>SỬA BÀI ĐĂNG</strong></div>
+          {% endif %}
+          <br>
+          <form class="" method="POST" enctype='multipart/form-data' style="width: 50%;
+          text-align: -webkit-center;">
+            {% csrf_token %}
+            <table>
+                {{form}}
+                {{form_image}}
+            </table> 
+            <div class="footer navbar-fixed-bottom formFooter ">
+              <div class="container">
+                <div class="btn-group btn-group-justified">
+                  <span style="vertical-align: middle;">
+                    <input class="btn btn-lg btn-primary btn-primary-customized" type="submit" value="Submit">
+                  </span>
+                </div>
+            </div>
+          </div>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

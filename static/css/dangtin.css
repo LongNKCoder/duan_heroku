@@ -1,0 +1,263 @@
+
+body {
+  background-color: white !important;
+}
+.text-center {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: -10px;
+}
+.container.wXl5RTamVUQpIsQLT-GCD {
+  width: 70%;
+}
+span.vertical-align-middle._2MqSyvtSUq53La2Fel6dU {
+  color: black !important;
+}
+._1mdvc2CcBloJ9uZbEWoqpZ {
+  padding: 8px;
+  padding-top: 20px;
+  padding-bottom: 80px;
+}
+label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+.customReactSelectWrapper {
+  position: relative;
+  margin-bottom: 10px;
+}
+.customReactSelectWrapper .inputStyle {
+  border-bottom: 1px solid #ccc!important;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.customReactSelectWrapper .customReactSelect {
+  border-bottom: 2px solid #ccc;
+}
+.Select, .Select div, .Select input, .Select span {
+  box-sizing: border-box;
+}
+.Select {
+  position: relative;
+}
+.customReactSelectWrapper .inputStyle .Select-control {
+  width: 100%!important;
+}
+.customReactSelectWrapper .customReactSelect .Select-control {
+  border-radius: 4px;
+  border: 0;
+  width: calc(100% - 25px);
+}
+.Select-control {
+  background-color: #fff;
+  border-color: #d9d9d9 #ccc #b3b3b3;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  color: #333;
+  cursor: default;
+  display: table;
+  border-spacing: 0;
+  border-collapse: separate;
+  height: 36px;
+  outline: 0;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.Select--single>.Select-control .Select-value, .Select-placeholder {
+  bottom: 0;
+  color: #aaa;
+  left: 0;
+  line-height: 34px;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.Select-input {
+  height: 34px;
+  padding-left: 10px;
+  padding-right: 10px;
+  vertical-align: middle;
+}
+.Select, .Select div, .Select input, .Select span {
+  box-sizing: border-box;
+}
+.nY9im20iq-Rva-bCJgHGR {
+  background-color: #fff;
+  border-color: #d9d9d9 #ccc #b3b3b3;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  color: #333;
+  cursor: default;
+  display: table;
+  border-spacing: 0;
+  border-collapse: separate;
+  height: 36px;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+button, select {
+  text-transform: none;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #fe9900;
+  border-color: #e58a00;
+}
+._1A31TKpr3aul3X8swjEql4 {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+.text-center {
+  text-align: center;
+}
+._1A31TKpr3aul3X8swjEql4 ._25xwuKQZwq0_h6E5t78mIg {
+  display: inline-block;
+  width: 50%;
+  padding: 4px 0;
+}
+._1A31TKpr3aul3X8swjEql4 input[type=radio].css-checkbox {
+  margin: -170px;
+  padding: 0;
+  border: 0;
+  margin-left: 80px;
+}
+input[type=checkbox], input[type=radio] {
+  margin: 4px 0 0;
+  margin-top: 1px\9;
+  line-height: normal;
+}
+input[type=checkbox], input[type=radio] {
+  box-sizing: border-box;
+  padding: 0;
+}
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+input {
+  line-height: normal;
+}
+
+._1A31TKpr3aul3X8swjEql4 input[type=radio].css-checkbox+label.css-label {
+    background-position: 30% 0;
+}
+
+._1A31TKpr3aul3X8swjEql4 input[type=radio].css-checkbox+label.css-label {
+    width: 100%;
+    padding-left: 190px;
+    height: 30px;
+    display: inline-block;
+    line-height: 30px;
+    background-repeat: no-repeat;
+    background-position: 10% 0;
+    vertical-align: middle;
+    cursor: pointer;
+    }
+._1A31TKpr3aul3X8swjEql4 label.css-label {
+    font-weight: 400;
+    margin: 0;
+    background-image: url(https://static.chotot.com.vn/storage/DANGTIN_CDN_PRODUCTION/839f567….png);
+    background-size: 30px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+*, :after, :before {
+    box-sizing: border-box;
+}
+._1A31TKpr3aul3X8swjEql4 ._25xwuKQZwq0_h6E5t78mIg {
+  display: inline-block;
+  width: 50%;
+  padding: 4px 0;
+}
+._25xwuKQZwq0_h6E5t78mIg.undefined {
+  margin-right: -5px !important;
+}
+
+._3wLdyQ1JXeAenU3yteGpQI>button {
+    width: 120px;
+    height: 120px;
+}
+._3wLdyQ1JXeAenU3yteGpQI>button {
+    width: 64px;
+    height: 64px;
+    position: relative;
+}
+.btn-brand {
+    color: #fe9900;
+    background-color: #fff;
+    border-color: #fe9900 !important;
+}
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px 1px 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.form-control{
+  width: 99.5% !important;
+}
+.panel-images{
+  width: 80px;
+  /* background-color: #fff; */
+  height: auto;
+}
+textarea.form-control {
+  height: auto;
+  width: 440px !important;
+}
+.category{
+  margin-top:20px;
+  width:450px;
+  height: auto;
+  /* background-color: rgb(180, 62, 62); */
+  float: right;
+}
+/* .panel-footer{
+  border-top: 0px solid #fff;
+} */
+strong {
+  margin-right: 300px;
+}
