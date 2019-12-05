@@ -3,9 +3,9 @@ from django.contrib.auth.models import User
 from login_register.models import Profile
 
 class UserForm(forms.ModelForm):
-    password = forms.CharField()
-    re_password = forms.CharField()
-    re_email = forms.CharField()
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    re_password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    re_email = forms.CharField(widget=forms.EmailInput(attrs={'class': 'form-control'}))
     class Meta():
         model = User
         fields = ('username','email','re_email','password','re_password')
