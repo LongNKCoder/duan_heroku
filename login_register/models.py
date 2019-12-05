@@ -11,3 +11,5 @@ class Profile(models.Model):
     balance = models.IntegerField(default = 0)
     pic = models.ImageField(upload_to='pic', blank=False, default="pic/default.jpg")
     address = models.TextField(blank=True)
+    def __str__(self):
+        return self.name

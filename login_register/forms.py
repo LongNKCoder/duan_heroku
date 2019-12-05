@@ -3,9 +3,6 @@ from django.core import validators
 from django.contrib.auth.models import User
 from login_register.models import Profile
 
-def check_phone(value):
-    if value[0:3].lower() not in ['086','096','097','098','089','090','093','088','091','094','099','092','056','058'] or value[0:4].lower() not in ['0162','0163','0164','0165','0166','0167','0168','0169','0120','0121','0122','0126','0128','0123','0124','0125','0127','0129','0199']:
-        raise forms.ValidationError("Số điện thọai bạn nhập không có thật")
 # TODO gửi email về cho người dùng để kích hoạt tài khoản
 # TODO validate số điện thoại
 class UserForm(forms.ModelForm):
@@ -44,6 +41,12 @@ class ProfileForm(forms.ModelForm):
         widgets = {
             'phone': forms.TextInput(attrs={'class': 'form-control'}),
         }
+    def clean(self):
+        all_clean_data = super().clean()
+        phone = all_clean_data['phone']
+        if (phone[0:3].lower() not in ['086','096','097','098','089','090','093','088','091','094','099','092','056','058'] and len(phone)==10)\
+            and (phone[0:4].lower() not in ['0162','0163','0164','0165','0166','0167','0168','0169','0120','0121','0122','0126','0128','0123','0124','0125','0127','0129','0199'] and len(phone)==11):
+            raise forms.ValidationError("Số điện thọai của bạn không hợp lệ, phải đăng ký bằng số diện thoại di động")
 
 class UpdateUserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))

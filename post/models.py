@@ -46,6 +46,8 @@ class Image(models.Model):
     pic = models.ImageField(upload_to='post/pic', blank=False)
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+    def __str__(self):
+        return self.post.title
 
 REPORT_CHOICES = (
     ('sensitive','Nội dung nhạy cảm'),
@@ -62,3 +64,5 @@ class ReportPost(models.Model):
     content = models.TextField()
     type_report = models.CharField(max_length=10, choices=REPORT_CHOICES, default='none')
     create_date = models.DateTimeField(default = now, editable = False)
+    def __str__(self):
+        return self.post.title
