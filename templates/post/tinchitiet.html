@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% extends "base.html"%}
-{%load static%}
+{% load static %}
 {% load humanize %}
 {% block style%}
 <link rel="stylesheet" href="{% static "css/timraovat.css"%}">
@@ -10,6 +10,9 @@
 <link rel="stylesheet" href="{% static "css/tinchitiet.css"%}">
 {% endblock %}
 {% block body_block%}
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous"
+  src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v5.0"></script>of
 <main class="App__Main-fcmPPF dlWmGF">
   <article style="background-color: #f4f4f4;">
     <div class="container _1OmYs5J4aYBAERDzg-6W8a">
@@ -49,14 +52,24 @@
               {% endfor %}
             </div>
           </div>
+          <meta property="og:url" content="https://quiet-citadel-98654.herokuapp.com/post/{{post.id}}" />
+          <meta property="og:type" content="article" />
+          <meta property="og:title" content="{{post.title}}" />
+          <meta property="og:description" content="{{post.content}}" />
+          <meta property="og:image" content="" />
           <div>
             <p itemprop="description" class="col-xs-12 text-justify _1No0Ndy5xkVdszNItBaiuv"
               style="white-space: pre-line;">{{post.content}}</p>
             <div class="col-xs-12 margin-top-10"><strong class="text-muted">Chia sẻ tin đăng này cho bạn
                 bè:</strong>
-              <div><a class="button__A-fZIMtR iINXMo"><img alt="facebook"
-                    src="https://static.chotot.com/storage/chotot-icons/svg/circle-facebook.svg" height="40"
-                    width="40"></a><a class="button__A-fZIMtR iINXMo"><img alt="messenger"
+              <div>
+                <div class="fb-share-button" data-href="https://quiet-citadel-98654.herokuapp.com/post/{{post.id}}"
+                  data-layout="button_count" data-size="large">
+                  <a target="_blank"
+                    href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
+                    class="fb-xfbml-parse-ignore">
+                    Chia sẻ</a></div>
+                <a class="button__A-fZIMtR iINXMo"><img alt="messenger"
                     src="https://static.chotot.com/storage/chotot-icons/svg/circle-messenger.svg" height="40"
                     width="40"></a><a class="zalo-share-button button__A-fZIMtR iINXMo"
                   data-href="https://www.chotot.com/tp-ho-chi-minh/quan-12/mua-ban-dat/58555161.htm#xtatc=INT-5-[share_ad_via_zalo]"
@@ -67,16 +80,17 @@
                     style="position: absolute;"></iframe></a><span class="copy__Wrapper-heVYVQ kWRTkk"><a
                     class="button__A-fZIMtR iINXMo"><img alt="copy"
                       src="https://static.chotot.com/storage/chotot-icons/svg/circle-copylink.svg" height="40"
-                      width="40"></a></span></div>
-                      <div class="sc-fBuWsC jCqADI"><img class="sc-fMiknA grsVqK"
-                          src="https://static.chotot.com.vn/storage/marketplace/shield-iconx4.png" alt="mua bán an toàn">
-                        <div class="sc-dVhcbM jQCtce"><em>
-                            <!-- react-text: 1588 -->Tin đăng này đã được kiểm duyệt. Nếu gặp vấn đề, vui lòng báo cáo tin
-                            đăng hoặc liên hệ CSKH để được trợ giúp.&nbsp;
-                            <!-- /react-text --><a target="_blank" rel="noopener"
-                              href="http://trogiup.chotot.com/ban-hang-tai-chotot-vn/kiem-duyet-tin/tai-sao-chotot-vn-duyet-tin-truoc-khi-dang/?utm_source=chotot&amp;utm_medium=user_protection&amp;utm_campaign=user_protection_ad_view">Xem
-                              thêm ››</a></em></div>
-                      </div>
+                      width="40"></a></span>
+              </div>
+              <div class="sc-fBuWsC jCqADI"><img class="sc-fMiknA grsVqK"
+                  src="https://static.chotot.com.vn/storage/marketplace/shield-iconx4.png" alt="mua bán an toàn">
+                <div class="sc-dVhcbM jQCtce"><em>
+                    <!-- react-text: 1588 -->Tin đăng này đã được kiểm duyệt. Nếu gặp vấn đề, vui lòng báo cáo tin
+                    đăng hoặc liên hệ CSKH để được trợ giúp.&nbsp;
+                    <!-- /react-text --><a target="_blank" rel="noopener"
+                      href="http://trogiup.chotot.com/ban-hang-tai-chotot-vn/kiem-duyet-tin/tai-sao-chotot-vn-duyet-tin-truoc-khi-dang/?utm_source=chotot&amp;utm_medium=user_protection&amp;utm_campaign=user_protection_ad_view">Xem
+                      thêm ››</a></em></div>
+              </div>
             </div>
           </div>
         </div>
@@ -88,7 +102,8 @@
                 <div class="styles__UserProfileInfoWrapper-fAdrVE jQEbod"><a
                     class="styles__ProfileWrapper-dPhSlC bWGbBK" href="{% url 'login_register:profile' post.user.id%}"
                     target="_blank">
-                      <img src="{{post.user.profile.pic.url}}" class="img-thumbnail img-circle _3r1LxPzm9N9CZVK8hYBlze _38Q-ZJPwiUyqL82cU4XpN6 ">
+                    <img src="{{post.user.profile.pic.url}}"
+                      class="img-thumbnail img-circle _3r1LxPzm9N9CZVK8hYBlze _38Q-ZJPwiUyqL82cU4XpN6 ">
                     <div class="styles__NameBounder-fVrffo fqYgiV">
                       <div class="styles__FlexDiv-gecxmb juHLCK">
                         <div class="styles__NameDiv-fClOhj dzrPXg"><b>
@@ -115,37 +130,31 @@
                       </div>
                     </div>
                   </div>
-                  <div class="_1qSLCB8OdSh-qqBU-8hsY9">
-                    <div class="sc-cIShpX drOAqa"><a class="sc-kafWEX dbdoNV"
-                        href="https://chat.chotot.com/chatroom/join/MTI5NTI0OTl8NTg1NTUxNjE=" target="_blank">
-                        <div class="sc-feJyhm ccHAWL"><span><img class="sc-iELTvK fjYNlE"
-                              src="https://static.chotot.com.vn/storage/chotot-icons/png/chat_green.png"></span><span>CHAT
-                            VỚI NGƯỜI BÁN</span></div>
-                      </a></div>
-                  </div>
+
                   {% if post.user == user%}
                   <div style="text-align: center;">
-                    <div class="sc-cIShpX drOAqa"><a class="sc-kafWEX dbdoNV" href="{% url 'post:capnhat' pk=post.pk%}"
-                        target="_blank">
+                    <div class="sc-cIShpX drOAqa">
+                      <a class="sc-kafWEX dbdoNV" href="{% url 'post:capnhat' pk=post.pk%}" target="_blank">
                         <div class="sc-feJyhm ccHAWL"><span><img class="sc-iELTvK fjYNlE"
                               src="https://icon-library.net/images/chnage-icon/chnage-icon-10.jpg"></span><span>Sửa
                             bài viết</span></div>
-                      </a></div>
+                      </a>
+                    </div>
                   </div>
                   {% endif %}
                   <div class="_1qSLCB8OdSh-qqBU-8hsY9" style="text-align: center;">
-                      <div class="btn-block _172F-2PuOv67wKHZRmWZv_">
-                        <div class="sc-gisBJw ikcTlv">
-                          <div class="sc-cHGsZl iTxwzU">
-                            {% if not user == post.user%}
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
-                              Báo cáo bài viết
-                            </button>
-                            {% endif %}
-                          </div>
+                    <div class="btn-block _172F-2PuOv67wKHZRmWZv_">
+                      <div class="sc-gisBJw ikcTlv">
+                        <div class="sc-cHGsZl iTxwzU">
+                          {% if not user == post.user%}
+                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
+                            Báo cáo bài viết
+                          </button>
+                          {% endif %}
                         </div>
                       </div>
                     </div>
+                  </div>
                   <div class="_1qSLCB8OdSh-qqBU-8hsY9 _2yFnwriywXbN31B7bl3L4 text-muted small">
                     <div class="col-xs-12 margin-top-10" style="padding-top: 30%;">
                       <div>
