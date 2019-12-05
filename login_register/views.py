@@ -6,6 +6,7 @@ from login_register.forms import ProfileForm,UserForm,UpdateProfileForm,UpdateUs
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import DetailView,UpdateView
 from django.contrib.auth.models import User
+from django.contrib.auth import login,authenticate
 from django.contrib.sites.shortcuts import get_current_site
 from . import models
 from django.utils.encoding import force_bytes, force_text
@@ -14,11 +15,6 @@ from django.template.loader import render_to_string
 from .tokens import account_activation_token
 from django.core.mail import EmailMessage
 
-
-
-class LoginViewCus(LoginView):
-    def form_valid(self,form):
-        return super().form_valid(form)
 
 class ProfileView(DetailView):
     context_object_name = 'nguoidung'

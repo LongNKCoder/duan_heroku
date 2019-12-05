@@ -32,8 +32,8 @@ class PostListView(ListView):
         return new_context
     def get_context_data(self, **kwargs):
         context = super(PostListView, self).get_context_data(**kwargs)
-        context['category'] = models.Category.objects.all
-        context['brand'] = models.Brand.objects.all
+        context['category'] = models.Category.objects.order_by('name')
+        context['brand'] = models.Brand.objects.order_by('name')
         return context
 
 class CreatePostView(LoginRequiredMixin,CreateView):
@@ -65,10 +65,6 @@ class UpdatePostView(UpdateView):
     template_name = 'post/post.html'
     def get_success_url(self):
         return '/timraovat'
-
-class DeletePostView(DeleteView):
-    model = models.Post
-    template_name = 'post/post.html'
 
 class PostDetailView(DetailView):
     context_object_name = 'post'

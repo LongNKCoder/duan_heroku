@@ -1,20 +1,20 @@
 from django import forms
-from django.core import validators
 from django.contrib.auth.models import User
 from login_register.models import Profile
 
-# TODO gửi email về cho người dùng để kích hoạt tài khoản
-# TODO validate số điện thoại
 class UserForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
-    re_password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
-    re_email = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    password = forms.CharField()
+    re_password = forms.CharField()
+    re_email = forms.CharField()
     class Meta():
         model = User
         fields = ('username','email','re_email','password','re_password')
         widgets = {
             'username': forms.TextInput(attrs={'class': 'form-control'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control'})
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),
+            're_email': forms.EmailInput(attrs={'class': 'form-control'}),
+            'password': forms.PasswordInput(attrs={'class': 'form-control'}),
+            're_password': forms.PasswordInput(attrs={'class': 'form-control'}),
         }
         help_texts = {
             'username': None,

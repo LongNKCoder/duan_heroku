@@ -11,10 +11,14 @@ def make_close(modeladmin, request, queryset):
 make_close.short_description = "Mark selected stories as close"
 
 class PostAdmin(admin.ModelAdmin):
+    def show_post(self, obj):
+        return format_html("<a href='{url}'>"+str(obj.title)+"</a>", url='/post/'+str(obj.id))
+
+    show_post.short_description = "Link bài viết"
     list_filter = ['category','brand','type_post','state']
     search_fields = ['title', 'user__username']
-    list_display = ['title','user','create_date','state']
-    list_editable = ['state']
+    list_display = ['title','show_post','user','update_date','state']
+    list_editable = ['state','update_date']
     actions = [make_open,make_close]
     list_per_page = 10
 
