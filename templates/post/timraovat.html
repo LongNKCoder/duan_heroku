@@ -1,20 +1,14 @@
-<!DOCTYPE html>
-{% extends "base.html"%}
-{%load static%}
+{% extends "post/post_base.html"%}
+{% load static %}
 {% load humanize %}
 {% load my_tags %}
-{% block style%}
-<link rel="stylesheet" href="{% static "css/timraovat.css"%}">
-<link rel="stylesheet" href="{% static "css/text.css"%}">
-<script src="{% static "js/text.js"%}"></script>
-{% endblock %}
 {% block body_block%}
 <div class="panel panel-default">
   <div class="container">
     <header>
       <div id="rgpt-2" data-google-query-id="">
         <div>
-          <img class="img-buyer" src="images/GamingCreator_Static1.2_728x90.png" alt="" width="750px" height="100px">
+          <img class="img-buyer" src="{% static "images/GamingCreator_Static1.2_728x90.png" %}" alt="" width="750px" height="100px">
         </div>
       </div>
       <div>
@@ -139,19 +133,12 @@
               {% endif %}
               <a href="/timraovat?{% param_replace page=paginator.num_pages %}">Last</a>
             {% endif %}
-          <!-- <p>Objects {{ page_obj.start_index }}—{{ page_obj.end_index }}</p> -->
             {% endif %}
           </div>
         </div> <!-- đóng col 8 -->
 
-
-        <div class="col-md-4">
-          <img src="images/sdk.png" alt="" width="300px">
-          <img src="images/qc1.gif" alt="">
-        </div> <!-- đóng col  4 -->
       </div>
     </main> <!-- đóng thẻ main -->
   </div>
 </div><!--  -->
-<script src="{% static "js/text.js"%}"></script>
 {% endblock %}

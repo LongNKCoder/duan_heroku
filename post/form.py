@@ -14,9 +14,13 @@ class ImageForm(forms.ModelForm):
         fields = ('pic',)
 
 class PostFormUpdate(forms.ModelForm):
+    state = forms.ChoiceField(label="State",
+                                choices=[('open','Mở'),('close','Đóng')],
+                                widget=forms.Select(),
+                                required=False)
     class Meta:
         model = Post
-        fields = ['state','title','price']
+        fields = ['state','title','price','content']
 
 class ReportForm(forms.ModelForm):
     class Meta:

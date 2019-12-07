@@ -1,14 +1,6 @@
 <!DOCTYPE html>
-{% extends "base.html"%}
-{% load static %}
+{% extends "post/post_base.html"%}
 {% load humanize %}
-{% block style%}
-<link rel="stylesheet" href="{% static "css/timraovat.css"%}">
-<link rel="stylesheet" href="{% static "css/text.css"%}">
-<link rel="stylesheet" href="{% static "css/dangki.css"%}">
-<link rel="stylesheet" href="{% static "css/dangtin.css"%}">
-<link rel="stylesheet" href="{% static "css/tinchitiet.css"%}">
-{% endblock %}
 {% block body_block%}
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous"
@@ -35,7 +27,6 @@
       <div class="row no-gutter-sm-down">
         <div class="col-sm-8" style="padding-bottom: 10px;">
           <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
             <ol class="carousel-indicators">
               {% for image in post.images.all%}
               <li data-target="#myCarousel" data-slide-to="{{ forloop.counter0 }}"></li>
@@ -63,6 +54,7 @@
             <div class="col-xs-12 margin-top-10"><strong class="text-muted">Chia sẻ tin đăng này cho bạn
                 bè:</strong>
               <div>
+                <!-- API FACEBOOK dùng để chia sẻ -->
                 <div class="fb-share-button" data-href="https://quiet-citadel-98654.herokuapp.com/post/{{post.id}}"
                   data-layout="button_count" data-size="large">
                   <a target="_blank"

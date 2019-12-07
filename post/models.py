@@ -22,7 +22,8 @@ TYPE_CHOICES = (
 
 STATE_CHOICES = (
     ('open','Mở'),
-    ('close','Đóng')
+    ('close','Đóng'),
+    ('wait','Đang chờ')
 )
 
 class Post(models.Model):
@@ -31,7 +32,7 @@ class Post(models.Model):
     create_date = models.DateTimeField(default = now, editable = False)
     update_date = models.DateTimeField(default = now)
     price = models.IntegerField()
-    state = models.CharField(max_length=6, choices=STATE_CHOICES, default='close')
+    state = models.CharField(max_length=6, choices=STATE_CHOICES, default='wait')
     type_post = models.CharField(max_length=6, choices=TYPE_CHOICES, default='ban')
     user = models.ForeignKey(User,on_delete = models.CASCADE, related_name='post')
     category = models.ForeignKey(Category,on_delete = models.CASCADE)
@@ -61,7 +62,7 @@ REPORT_CHOICES = (
 class ReportPost(models.Model):
     post = models.ForeignKey(Post,on_delete = models.CASCADE, related_name='report',)
     pic = models.ImageField(upload_to='post/report', blank=False)
-    content = models.TextField()
+    content = models.TextField(blank=False)
     type_report = models.CharField(max_length=10, choices=REPORT_CHOICES, default='none')
     create_date = models.DateTimeField(default = now, editable = False)
     def __str__(self):
