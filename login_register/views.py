@@ -32,7 +32,7 @@ class ProfileView(DetailView):
             user = User.objects.get(pk=request.user.id)
             user.profile.address = profile_form.cleaned_data['address'] if profile_form.cleaned_data['address'] else user.profile.address
             profile = user.profile
-            profile.pic = request.FILES['pic'] if request.FILES['pic'] else profile.pic
+            profile.pic = request.FILES.get('pic') if request.FILES.get('pic') else profile.pic
             user.first_name = user_form.cleaned_data['first_name'] if user_form.cleaned_data['first_name'] else user.first_name
             user.last_name = user_form.cleaned_data['last_name'] if user_form.cleaned_data['last_name'] else user.last_name
             user.set_password(user_form.cleaned_data['password'])
