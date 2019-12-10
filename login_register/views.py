@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.views import LoginView,PasswordChangeView,PasswordResetView
 from django.http import HttpResponse
 from login_register.models import Profile
 from login_register.forms import ProfileForm,UserForm,UpdateProfileForm,UpdateUserForm
