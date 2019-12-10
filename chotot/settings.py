@@ -35,7 +35,7 @@ DEBUG = True
 LOGIN_URL = '/users/login'
 LOGIN_REDIRECT_URL = '/timraovat'
 LOGOUT_REDIRECT_URL = '/'
-ALLOWED_HOSTS = ['quiet-citadel-98654.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['speedmarket.herokuapp.com','127.0.0.1']
 
 
 # Application definition
