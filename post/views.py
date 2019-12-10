@@ -27,8 +27,7 @@ class PostListView(ListView):
         order_by = self.request.GET.get('order_by') or '?'
         new_context = models.Post.objects.filter(
             title__contains=filter_title,category__name__contains=filter_category,
-            brand__name__contains=filter_brand,type_post__contains=filter_type
-        ).order_by(order_by)
+            brand__name__contains=filter_brand,type_post__contains=filter_type).order_by(order_by)
         return new_context
     def get_context_data(self, **kwargs):
         context = super(PostListView, self).get_context_data(**kwargs)
@@ -81,4 +80,4 @@ class PostDetailView(DetailView):
         pic = request.FILES['pic']
         report = models.ReportPost(post=post,content=content,type_report=type_report,pic=pic)
         report.save()
-        return redirect('/post/'+str(self.kwargs['pk']))
+        return redirect('/post/' + str(self.kwargs['pk']))

@@ -57,14 +57,17 @@
         margin-top: 0px;">
           <br>
           <h1 class="danhmuc">Khám phá danh mục</h1>
+          <br>
           {% for categ in category%}
           <a href="/timraovat?category={{categ.name}}">
           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
             <div class="panel-images">
-              <div class="minuscule">
+              <div class="">
                 <Span class="category" style="color: black;">{{categ.name}}</Span>
               </div>
-              <img data-src="" alt="" class="opacity img-minuscule" style="opacity: 80%;" src= "{{ categ.pic.url }}"  width="200px" height="110px">
+              <div>
+                <img data-src="" alt="" class="opacity img-minuscule" style="opacity: 80%;" src= "{{ categ.pic.url }}"  width="200px" height="110px">
+              </div>
             </div>
           </div>
           {% endfor %}
