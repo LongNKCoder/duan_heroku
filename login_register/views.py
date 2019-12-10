@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.views import LoginView,PasswordChangeView,PasswordResetView
 from django.http import HttpResponse
 from login_register.models import Profile
 from login_register.forms import ProfileForm,UserForm,UpdateProfileForm,UpdateUserForm
@@ -111,4 +110,5 @@ class ResetPasswordCustom(PasswordResetView):
             if not User.objects.filter(email=confirm_email):
                 return render(request,'login_register/reset_password.html',{'message':'Email của bạn không có trong database vui lòng nhập lại','form':form})
             else:
-                return super().form_valid(form)
+                super().form_valid(form)
+                return render(request,'login_register/reset_password.html',{'message':'Bạn hãy check email của mình để nhận lại mail đổi pass','form':form})
