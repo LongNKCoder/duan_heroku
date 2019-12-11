@@ -21,7 +21,6 @@ class PostListView(ListView):
     def get_queryset(self):
         filter_title = self.request.GET.get('title') or ''
         filter_brand = self.request.GET.get('brand') or ''
-        filter_time = self.request.GET.get('time') or ''
         filter_type = self.request.GET.get('type') or ''
         filter_category = self.request.GET.get('category') or ''
         order_by = self.request.GET.get('order_by') or '?'

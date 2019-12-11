@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView,PasswordChangeView,PasswordResetView
 from django.http import HttpResponse
 from login_register.models import Profile
+from post.models import Post
 from login_register.forms import ProfileForm,UserForm,UpdateProfileForm,UpdateUserForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import DetailView,UpdateView
@@ -26,6 +27,7 @@ class ProfileView(DetailView):
         context = super(ProfileView, self).get_context_data(**kwargs)
         context['form_profile'] = UpdateProfileForm()
         context['form_user'] = UpdateUserForm()
+        context['posts'] = Post.objects.filter(user__id=self.kwargs.get('pk')).order_by('-update_date')
         return context
     def post(self, request, *args, **kwargs):
         user_form = UpdateUserForm(data=request.POST)
