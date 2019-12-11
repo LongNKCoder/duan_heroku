@@ -47,16 +47,16 @@ class Post(models.Model):
     def whenpublished(self):
         now = timezone.now()
         
-        diff= now - self.create_date
+        diff= now - self.update_date
 
         if diff.days == 0 and diff.seconds >= 0 and diff.seconds < 60:
             seconds= diff.seconds
             
             if seconds == 1:
-                return str(seconds) +  "vài giây trước"
+                return str(seconds) +  " giây trước"
             
             else:
-                return str(seconds) + " vài giây trước"
+                return str(seconds) + " giây trước"
 
             
 
@@ -64,10 +64,10 @@ class Post(models.Model):
             minutes= math.floor(diff.seconds/60)
 
             if minutes == 1:
-                return str(minutes) + " vài phút trước"
+                return str(minutes) + " phút trước"
             
             else:
-                return str(minutes) + " vài phút trước"
+                return str(minutes) + " phút trước"
 
 
 
@@ -75,40 +75,40 @@ class Post(models.Model):
             hours= math.floor(diff.seconds/3600)
 
             if hours == 1:
-                return str(hours) + " vài giờ trước"
+                return str(hours) + " giờ trước"
 
             else:
-                return str(hours) + " vài giờ trước"
+                return str(hours) + " giờ trước"
 
         # 1 day to 30 days
         if diff.days >= 1 and diff.days < 30:
             days= diff.days
         
             if days == 1:
-                return str(days) + " vài ngày trước"
+                return str(days) + " ngày trước"
 
             else:
-                return str(days) + " vài ngày trước"
+                return str(days) + " ngày trước"
 
         if diff.days >= 30 and diff.days < 365:
             months= math.floor(diff.days/30)
             
 
             if months == 1:
-                return str(months) + " vài tháng trước"
+                return str(months) + " tháng trước"
 
             else:
-                return str(months) + " vài tháng trước"
+                return str(months) + " tháng trước"
 
 
         if diff.days >= 365:
             years= math.floor(diff.days/365)
 
             if years == 1:
-                return str(years) + " vài năm trước"
+                return str(years) + " năm trước"
 
             else:
-                return str(years) + " vài năm trước"
+                return str(years) + " năm trước"
 
 
 class Image(models.Model):
