@@ -44,71 +44,71 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse("post:baitinchitiet", kwargs={"pk": self.pk})
     
-        def whenpublished(self):
-            now = timezone.now()
+    def whenpublished(self):
+        now = timezone.now()
+        
+        diff= now - self.create_date
+
+        if diff.days == 0 and diff.seconds >= 0 and diff.seconds < 60:
+            seconds= diff.seconds
             
-            diff= now - self.create_date
-
-            if diff.days == 0 and diff.seconds >= 0 and diff.seconds < 60:
-                seconds= diff.seconds
-                
-                if seconds == 1:
-                    return str(seconds) +  "vài giây trước"
-                
-                else:
-                    return str(seconds) + " vài giây trước"
-
-                
-
-            if diff.days == 0 and diff.seconds >= 60 and diff.seconds < 3600:
-                minutes= math.floor(diff.seconds/60)
-
-                if minutes == 1:
-                    return str(minutes) + " vài phút trước"
-                
-                else:
-                    return str(minutes) + " vài phút trước"
-
-
-
-            if diff.days == 0 and diff.seconds >= 3600 and diff.seconds < 86400:
-                hours= math.floor(diff.seconds/3600)
-
-                if hours == 1:
-                    return str(hours) + " vài giờ trước"
-
-                else:
-                    return str(hours) + " vài giờ trước"
-
-            # 1 day to 30 days
-            if diff.days >= 1 and diff.days < 30:
-                days= diff.days
+            if seconds == 1:
+                return str(seconds) +  "vài giây trước"
             
-                if days == 1:
-                    return str(days) + " vài ngày trước"
+            else:
+                return str(seconds) + " vài giây trước"
 
-                else:
-                    return str(days) + " vài ngày trước"
+            
 
-            if diff.days >= 30 and diff.days < 365:
-                months= math.floor(diff.days/30)
-                
+        if diff.days == 0 and diff.seconds >= 60 and diff.seconds < 3600:
+            minutes= math.floor(diff.seconds/60)
 
-                if months == 1:
-                    return str(months) + " vài tháng trước"
-
-                else:
-                    return str(months) + " vài tháng trước"
+            if minutes == 1:
+                return str(minutes) + " vài phút trước"
+            
+            else:
+                return str(minutes) + " vài phút trước"
 
 
-            if diff.days >= 365:
-                years= math.floor(diff.days/365)
 
-                if years == 1:
-                    return str(years) + " vài năm trước"
+        if diff.days == 0 and diff.seconds >= 3600 and diff.seconds < 86400:
+            hours= math.floor(diff.seconds/3600)
 
-                else:
-                    return str(years) + " vài năm trước"
+            if hours == 1:
+                return str(hours) + " vài giờ trước"
+
+            else:
+                return str(hours) + " vài giờ trước"
+
+        # 1 day to 30 days
+        if diff.days >= 1 and diff.days < 30:
+            days= diff.days
+        
+            if days == 1:
+                return str(days) + " vài ngày trước"
+
+            else:
+                return str(days) + " vài ngày trước"
+
+        if diff.days >= 30 and diff.days < 365:
+            months= math.floor(diff.days/30)
+            
+
+            if months == 1:
+                return str(months) + " vài tháng trước"
+
+            else:
+                return str(months) + " vài tháng trước"
+
+
+        if diff.days >= 365:
+            years= math.floor(diff.days/365)
+
+            if years == 1:
+                return str(years) + " vài năm trước"
+
+            else:
+                return str(years) + " vài năm trước"
 
 
 class Image(models.Model):
