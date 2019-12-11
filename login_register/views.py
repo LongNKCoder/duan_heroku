@@ -16,6 +16,8 @@ from .tokens import account_activation_token
 from django.core.mail import EmailMessage
 
 
+
+
 class ProfileView(DetailView):
     context_object_name = 'nguoidung'
     model = User

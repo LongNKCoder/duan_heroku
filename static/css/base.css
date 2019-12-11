@@ -5,9 +5,8 @@ body {
 
 .carousel-inner {
   position   : relative;
-  width      : 180% !important;
+  width      : 100% !important;
   overflow   : hidden;
-  margin-left: -50px !important;
   display    : block;
   max-width  : 100%;
   height     : auto;
@@ -25,10 +24,8 @@ body {
 }
 
 .carousel {
-  width     : 90%;
-  margin-top: -7px !important;
-  left      : 145px;
-
+  width     : 100%;
+  text-align: center;
 }
 
 .danhmuc {

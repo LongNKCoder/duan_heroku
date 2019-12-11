@@ -1,207 +1,211 @@
-<!DOCTYPE html>
-{% extends "post/post_base.html"%}
-{% load humanize %}
-{% block body_block%}
+<!DOCTYPE html> {% extends "post/post_base.html"%} {% load humanize %} {% block body_block%}
 <div id="fb-root"></div>
-<script async defer crossorigin="anonymous"
-  src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v5.0"></script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v5.0">
+</script>
 <main class="App__Main-fcmPPF dlWmGF">
-  <article style="background-color: #f4f4f4;">
-    <div class="container _1OmYs5J4aYBAERDzg-6W8a">
-      <div class="row hKeDdA_G7No3HepOClD8G">
-        <div class="iltDBORq0FT_OjmouT7Ui">
-          <div class="ICOY-4hTuxlSCBsYzqBxM">
-            <h1 class="_22kG1zbJ4D-6IUEgKvoifC col-xs-12 AdItem__Title-fFamiu ekmzk" itemprop="name">
-              {{post.title}}
-            </h1>
-          </div>
-          <div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
-            <div class="col-xs-12 adItemOfferWrapper">
-              <div class="AdItem__PriceWrapper-iSokgh cEWkgd"><span class="oRSYZ0HPb2tHhHjpVp_2o"><span itemprop="price"
-                    content="{{post.price}}">{{post.price|intcomma}} đ</span>
-                </span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row no-gutter-sm-down">
-        <div class="col-sm-8" style="padding-bottom: 10px;">
-          <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-              {% for image in post.images.all%}
-              <li data-target="#myCarousel" data-slide-to="{{ forloop.counter0 }}"></li>
-              {% endfor %}
-            </ol>
-            <div class="carousel-inner">
-              <div class="item active">
-                <img class="img-carousel" src="{{post.images.all.0.pic.url}}">
-              </div>
-              {% for image in post.images.all|slice:"1:"%}
-              <div class="item">
-                <img class="img-carousel" src="{{image.pic.url}}">
-              </div>
-              {% endfor %}
-            </div>
-          </div>
-          <meta property="og:url" content="https://quiet-citadel-98654.herokuapp.com/post/{{post.id}}" />
-          <meta property="og:type" content="article" />
-          <meta property="og:title" content="{{post.title}}" />
-          <meta property="og:description" content="{{post.content}}" />
-          <meta property="og:image" content="" />
-          <div>
-            <p itemprop="description" class="col-xs-12 text-justify _1No0Ndy5xkVdszNItBaiuv"
-              style="white-space: pre-line;">{{post.content}}</p>
-            <div class="col-xs-12 margin-top-10"><strong class="text-muted">Chia sẻ tin đăng này cho bạn
-                bè:</strong>
-              <div>
-                <!-- API FACEBOOK dùng để chia sẻ -->
-                <div class="fb-share-button" data-href="https://quiet-citadel-98654.herokuapp.com/post/{{post.id}}"
-                  data-layout="button_count" data-size="large">
-                  <a target="_blank"
-                    href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
-                    class="fb-xfbml-parse-ignore">
-                    Chia sẻ</a></div>
-                <a class="button__A-fZIMtR iINXMo"><img alt="messenger"
-                    src="https://static.chotot.com/storage/chotot-icons/svg/circle-messenger.svg" height="40"
-                    width="40"></a><a class="zalo-share-button button__A-fZIMtR iINXMo"
-                  data-href="https://www.chotot.com/tp-ho-chi-minh/quan-12/mua-ban-dat/58555161.htm#xtatc=INT-5-[share_ad_via_zalo]"
-                  data-oaid="570044068386186227" data-layout="2" data-color="blue" data-customize="true"><img alt="zalo"
-                    src="https://static.chotot.com/storage/chotot-icons/svg/circle-zalo.svg" height="40"
-                    width="40"><iframe frameborder="0" allowfullscreen="" scrolling="no" width="0px" height="0px"
-                    src="https://sp.zalo.me/plugins/share?dev=null&amp;color=blue&amp;oaid=570044068386186227&amp;href=https%3A%2F%2Fwww.chotot.com%2Ftp-ho-chi-minh%2Fquan-12%2Fmua-ban-dat%2F58555161.htm%23xtatc%3DINT-5-%5Bshare_ad_via_zalo%5D&amp;layout=2&amp;customize=true&amp;callback=null&amp;id=b6ba63ea-69cd-4fd8-b8ab-aa8c0b033ab2&amp;domain=www.chotot.com&amp;android=false&amp;ios=false"
-                    style="position: absolute;"></iframe></a><span class="copy__Wrapper-heVYVQ kWRTkk"><a
-                    class="button__A-fZIMtR iINXMo"><img alt="copy"
-                      src="https://static.chotot.com/storage/chotot-icons/svg/circle-copylink.svg" height="40"
-                      width="40"></a></span>
-              </div>
-              <div class="sc-fBuWsC jCqADI"><img class="sc-fMiknA grsVqK"
-                  src="https://static.chotot.com.vn/storage/marketplace/shield-iconx4.png" alt="mua bán an toàn">
-                <div class="sc-dVhcbM jQCtce"><em>
-                    <!-- react-text: 1588 -->Tin đăng này đã được kiểm duyệt. Nếu gặp vấn đề, vui lòng báo cáo tin
-                    đăng hoặc liên hệ CSKH để được trợ giúp.&nbsp;
-                    <!-- /react-text --><a target="_blank" rel="noopener"
-                      href="http://trogiup.chotot.com/ban-hang-tai-chotot-vn/kiem-duyet-tin/tai-sao-chotot-vn-duyet-tin-truoc-khi-dang/?utm_source=chotot&amp;utm_medium=user_protection&amp;utm_campaign=user_protection_ad_view">Xem
-                      thêm ››</a></em></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-4 visible-md visible-lg visible-xl _1E45evYilkAmIgtle77ZQk">
-          <div>
-            <div></div>
-            <div class="" style="">
-              <div class="_3mb4oCiyoOiRy41U3DhZcs">
-                <div class="styles__UserProfileInfoWrapper-fAdrVE jQEbod"><a
-                    class="styles__ProfileWrapper-dPhSlC bWGbBK" href="{% url 'login_register:profile' post.user.id%}"
-                    target="_blank">
-                    <img src="{{post.user.profile.pic.url}}"
-                      class="img-thumbnail img-circle _3r1LxPzm9N9CZVK8hYBlze _38Q-ZJPwiUyqL82cU4XpN6 ">
-                    <div class="styles__NameBounder-fVrffo fqYgiV">
-                      <div class="styles__FlexDiv-gecxmb juHLCK">
-                        <div class="styles__NameDiv-fClOhj dzrPXg"><b>
-                            <b>{{post.user.username}}</b></div><button
-                          class="styles__SecondaryButton-kJMwTe iluGAh styles__BaseBtn-bLaJmp kFdpfu">Xem
-                          trang</button>
-                      </div>
-                      <div class="styles__StatusOnlineDiv-EFyjL ijoFhp"><span
-                          class="styles__OnlineBullet-dVkMwj VeeSf">•</span> Lần cuối đăng nhập:
-                        {{post.user.last_login|timesince}} trước
-                      </div>
+    <article style="background-color: #f4f4f4;">
+        <div class="container _1OmYs5J4aYBAERDzg-6W8a">
+            <div class="row hKeDdA_G7No3HepOClD8G">
+                <div class="iltDBORq0FT_OjmouT7Ui">
+                    <div class="ICOY-4hTuxlSCBsYzqBxM">
+                        <h1 class="_22kG1zbJ4D-6IUEgKvoifC col-xs-12 AdItem__Title-fFamiu ekmzk" itemprop="name">
+                            {{post.title}}
+                        </h1>
                     </div>
-                  </a>
-                </div>
-                <div class="_1NPt6YwpCxTsRRk89MWcQe">
-                  <div class="_1qSLCB8OdSh-qqBU-8hsY9">
-                    <div class="btn-block _172F-2PuOv67wKHZRmWZv_">
-                      <div class="sc-gisBJw ikcTlv">
-                        <div class="sc-kjoXOD icTLCU">
-                          <div class="sc-cHGsZl iTxwzU"><span><img class="sc-TOsTZ bnAkpx"
-                                src="https://static.chotot.com.vn/storage/chotot-icons/svg/white-phone.svg">
-                            </span><span>{{post.user.profile.phone}}</span></div>
+                    <div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+                        <div class="col-xs-12 adItemOfferWrapper">
+                            <div class="AdItem__PriceWrapper-iSokgh cEWkgd"><span class="oRSYZ0HPb2tHhHjpVp_2o"><span
+                                        itemprop="price" content="{{post.price}}">{{post.price|intcomma}} đ</span>
+                                </span>
+                            </div>
                         </div>
-                      </div>
                     </div>
-                  </div>
+                </div>
+            </div>
+            <div class="row no-gutter-sm-down">
+                <div class="col-sm-8" style="padding-bottom: 10px;">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            {% for image in post.images.all%}
+                            <li data-target="#myCarousel" data-slide-to="{{ forloop.counter0 }}"></li>
+                            {% endfor %}
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img class="img-carousel" src="{{post.images.all.0.pic.url}}">
+                            </div>
+                            {% for image in post.images.all|slice:"1:"%}
+                            <div class="item">
+                                <img class="img-carousel" src="{{image.pic.url}}">
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <meta property="og:url" content="https://quiet-citadel-98654.herokuapp.com/post/{{post.id}}" />
+                    <meta property="og:type" content="article" />
+                    <meta property="og:title" content="{{post.title}}" />
+                    <meta property="og:description" content="{{post.content}}" />
+                    <meta property="og:image" content="" />
+                    <div>
+                        <p itemprop="description" class="col-xs-12 text-justify _1No0Ndy5xkVdszNItBaiuv"
+                            style="white-space: pre-line;">{{post.content}}</p>
+                        <div class="col-xs-12 margin-top-10"><strong class="text-muted">Chia sẻ tin đăng này cho bạn
+                                bè:</strong>
+                            <div>
+                                <!-- API FACEBOOK dùng để chia sẻ -->
+                                <div class="fb-share-button"
+                                    data-href="https://quiet-citadel-98654.herokuapp.com/post/{{post.id}}"
+                                    data-layout="button_count" data-size="large">
+                                    <a target="_blank"
+                                        href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
+                                        class="fb-xfbml-parse-ignore">
+                                        Chia sẻ</a></div>
+                                <a class="button__A-fZIMtR iINXMo"><img alt="messenger"
+                                        src="https://static.chotot.com/storage/chotot-icons/svg/circle-messenger.svg"
+                                        height="40" width="40"></a>
+                                <a class="zalo-share-button button__A-fZIMtR iINXMo"
+                                    data-href="https://www.chotot.com/tp-ho-chi-minh/quan-12/mua-ban-dat/58555161.htm#xtatc=INT-5-[share_ad_via_zalo]"
+                                    data-oaid="570044068386186227" data-layout="2" data-color="blue"
+                                    data-customize="true"><img alt="zalo"
+                                        src="https://static.chotot.com/storage/chotot-icons/svg/circle-zalo.svg"
+                                        height="40" width="40"><iframe frameborder="0" allowfullscreen="" scrolling="no"
+                                        width="0px" height="0px"
+                                        src="https://sp.zalo.me/plugins/share?dev=null&amp;color=blue&amp;oaid=570044068386186227&amp;href=https%3A%2F%2Fwww.chotot.com%2Ftp-ho-chi-minh%2Fquan-12%2Fmua-ban-dat%2F58555161.htm%23xtatc%3DINT-5-%5Bshare_ad_via_zalo%5D&amp;layout=2&amp;customize=true&amp;callback=null&amp;id=b6ba63ea-69cd-4fd8-b8ab-aa8c0b033ab2&amp;domain=www.chotot.com&amp;android=false&amp;ios=false"
+                                        style="position: absolute;"></iframe></a><span
+                                    class="copy__Wrapper-heVYVQ kWRTkk"><a class="button__A-fZIMtR iINXMo"><img
+                                            alt="copy"
+                                            src="https://static.chotot.com/storage/chotot-icons/svg/circle-copylink.svg"
+                                            height="40" width="40"></a></span>
+                            </div>
+                            <div class="sc-fBuWsC jCqADI"><img class="sc-fMiknA grsVqK"
+                                    src="https://static.chotot.com.vn/storage/marketplace/shield-iconx4.png"
+                                    alt="mua bán an toàn">
+                                <div class="sc-dVhcbM jQCtce"><em>
+                                        <!-- react-text: 1588 -->Tin đăng này đã được kiểm duyệt. Nếu gặp vấn đề, vui
+                                        lòng báo cáo tin
+                                        đăng hoặc liên hệ CSKH để được trợ giúp.&nbsp;
+                                        <!-- /react-text --><a target="_blank" rel="noopener"
+                                            href="http://trogiup.chotot.com/ban-hang-tai-chotot-vn/kiem-duyet-tin/tai-sao-chotot-vn-duyet-tin-truoc-khi-dang/?utm_source=chotot&amp;utm_medium=user_protection&amp;utm_campaign=user_protection_ad_view">Xem
+                                            thêm ››</a></em></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 visible-md visible-lg visible-xl _1E45evYilkAmIgtle77ZQk">
+                        <div class="" style="">
+                            <div class="_3mb4oCiyoOiRy41U3DhZcs">
+                                <div class="styles__UserProfileInfoWrapper-fAdrVE jQEbod">
+                                    <a class="styles__ProfileWrapper-dPhSlC bWGbBK"
+                                        href="{% url 'login_register:profile' post.user.id%}" target="_blank">
+                                        <img src="{{post.user.profile.pic.url}}"
+                                            class="img-thumbnail img-circle _3r1LxPzm9N9CZVK8hYBlze _38Q-ZJPwiUyqL82cU4XpN6 ">
+                                        <div class="styles__NameBounder-fVrffo fqYgiV">
+                                            <div class="styles__FlexDiv-gecxmb juHLCK">
+                                                <div class="styles__NameDiv-fClOhj dzrPXg"><b>
+                                                        <b>{{post.user.username}}</b></div><button
+                                                    class="styles__SecondaryButton-kJMwTe iluGAh styles__BaseBtn-bLaJmp kFdpfu">Xem
+                                                    trang</button>
+                                            </div>
+                                            <div class="styles__StatusOnlineDiv-EFyjL ijoFhp"><span
+                                                    class="styles__OnlineBullet-dVkMwj VeeSf">•</span> Lần cuối đăng
+                                                nhập: {{post.user.last_login|timesince}} trước
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="_1NPt6YwpCxTsRRk89MWcQe">
+                                    <div class="_1qSLCB8OdSh-qqBU-8hsY9">
+                                        <div class="btn-block _172F-2PuOv67wKHZRmWZv_">
+                                            <div class="sc-gisBJw ikcTlv">
+                                                <div class="sc-kjoXOD icTLCU">
+                                                    <div class="sc-cHGsZl iTxwzU"><span><img class="sc-TOsTZ bnAkpx"
+                                                                src="https://static.chotot.com.vn/storage/chotot-icons/svg/white-phone.svg">
+                                                        </span><span>{{post.user.profile.phone}}</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                  {% if post.user == user%}
-                  <div style="text-align: center;">
-                    <div class="sc-cIShpX drOAqa">
-                      <a class="sc-kafWEX dbdoNV" href="{% url 'post:capnhat' pk=post.pk%}" target="_blank">
-                        <div class="sc-feJyhm ccHAWL"><span><img class="sc-iELTvK fjYNlE"
-                              src="https://icon-library.net/images/chnage-icon/chnage-icon-10.jpg"></span><span>Sửa
-                            bài viết</span></div>
-                      </a>
-                    </div>
-                  </div>
-                  {% endif %}
-                  <div class="_1qSLCB8OdSh-qqBU-8hsY9" style="text-align: center;">
-                    <div class="btn-block _172F-2PuOv67wKHZRmWZv_">
-                      <div class="sc-gisBJw ikcTlv">
-                        <div class="sc-cHGsZl iTxwzU">
-                          {% if not user == post.user%}
-                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
-                            Báo cáo bài viết
-                          </button>
-                          {% endif %}
+                                    {% if post.user == user%}
+                                    <div style="text-align: center;">
+                                        <div class="sc-cIShpX drOAqa">
+                                            <a class="sc-kafWEX dbdoNV" href="{% url 'post:capnhat' pk=post.pk%}"
+                                                target="_blank">
+                                                <div class="sc-feJyhm ccHAWL"><span><img class="sc-iELTvK fjYNlE"
+                                                            src="https://icon-library.net/images/chnage-icon/chnage-icon-10.jpg"></span><span>Sửa
+                                                        bài viết</span></div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    <div class="_1qSLCB8OdSh-qqBU-8hsY9" style="text-align: center;">
+                                        <div class="btn-block _172F-2PuOv67wKHZRmWZv_">
+                                            <div class="sc-gisBJw ikcTlv">
+                                                <div class="sc-cHGsZl iTxwzU">
+                                                    {% if not user == post.user%}
+                                                    <button type="button" class="btn btn-danger" data-toggle="modal"
+                                                        data-target="#myModal">
+                                                        Báo cáo bài viết
+                                                    </button> {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="_1qSLCB8OdSh-qqBU-8hsY9 _2yFnwriywXbN31B7bl3L4 text-muted small">
+                                        <div class="col-xs-12 margin-top-10" style="padding-top: 30%;">
+                                            <div>
+                                                <div class="SafeTips__SafeTipsWrapper-gWgMGO guGpFY">
+                                                    <div><img alt="safe tips" class="pull-left" width="100"
+                                                            src="https://st.chotot.com/storage/images/tips/1_PTY.png">
+                                                        <div class="mb-0 SafeTips__TipText-iJoGDM gYDniF">KHÔNG NÊN đặt
+                                                            cọc nếu chưa xác định được chủ nhà.</div><a
+                                                            class="pull-left"
+                                                            href="https://trogiup.chotot.com/mua-hang-tai-chotot-vn/meo-mua-hang-tim-viec/meo-khi-thue-phong/?utm_source=chotot&amp;utm_medium=ad_view&amp;utm_campaign=safety_tip_adview"
+                                                            target="_blank">Tìm hiểu thêm »</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="_1qSLCB8OdSh-qqBU-8hsY9 _2yFnwriywXbN31B7bl3L4 text-muted small">
-                    <div class="col-xs-12 margin-top-10" style="padding-top: 30%;">
-                      <div>
-                        <div class="SafeTips__SafeTipsWrapper-gWgMGO guGpFY">
-                          <div><img alt="safe tips" class="pull-left" width="100"
-                              src="https://st.chotot.com/storage/images/tips/1_PTY.png">
-                            <div class="mb-0 SafeTips__TipText-iJoGDM gYDniF">KHÔNG NÊN đặt cọc nếu chưa xác định được
-                              chủ nhà.</div><a class="pull-left"
-                              href="https://trogiup.chotot.com/mua-hang-tai-chotot-vn/meo-mua-hang-tim-viec/meo-khi-thue-phong/?utm_source=chotot&amp;utm_medium=ad_view&amp;utm_campaign=safety_tip_adview"
-                              target="_blank">Tìm hiểu thêm »</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                  </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </article>
+    </article>
 </main>
 
 <!-- The Modal -->
 <div class="modal" id="myModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-dialog">
+        <div class="modal-content">
 
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Báo cáo bài viết</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Báo cáo bài viết</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
 
-      <!-- Modal body -->
-      <form action="" method="POST" enctype='multipart/form-data'>
-        <div class="modal-body">
-          {%csrf_token%}
-          <table>
-            {{form_report}}
-          </table>
+            <!-- Modal body -->
+            <form action="" method="POST" enctype='multipart/form-data'>
+                <div class="modal-body">
+                    {%csrf_token%}
+                    <table>
+                        {{form_report}}
+                    </table>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-warning">Report bài viết</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+
         </div>
-
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-warning">Report bài viết</button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        </div>
-      </form>
-
     </div>
-  </div>
 </div>
 {% endblock %}
