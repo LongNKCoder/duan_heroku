@@ -4,7 +4,7 @@
 {% block body_block%}
   <meta property="og:url"           content="https://speedmarket.herokuapp.com/post/{{post.id}}" />
   <meta property="og:type"          content="website" />
-  <meta property="og:title"         content="Speed Market" />
+  <meta property="og:title"         content="{{post.title}}" />
   <meta property="og:description"   content="{{post.content}}" />
   <meta property="og:image"         content="https://speedmarket.herokuapp.com{%static "images/favicon.ico"%}" />
 <div id="fb-root"></div>
