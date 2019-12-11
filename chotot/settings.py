@@ -31,7 +31,7 @@ MEDIA_DIR = os.path.join(BASE_DIR,'media')
 SECRET_KEY = 'cj9=u2_wp77)fknq$5!5^&1a2l*dl$%@%ggo8znq7&6y0yu!(+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 LOGIN_URL = '/users/login'
 LOGIN_REDIRECT_URL = '/timraovat'
 LOGOUT_REDIRECT_URL = '/'
