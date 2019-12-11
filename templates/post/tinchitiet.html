@@ -1,7 +1,6 @@
 <!DOCTYPE html> {% extends "post/post_base.html"%} {% load humanize %} {% block body_block%}
 <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v5.0">
-</script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v5.0"></script>
 <main class="App__Main-fcmPPF dlWmGF">
     <article style="background-color: #f4f4f4;">
         <div class="container _1OmYs5J4aYBAERDzg-6W8a">
@@ -41,11 +40,6 @@
                             {% endfor %}
                         </div>
                     </div>
-                    <meta property="og:url" content="https://speedmarket.herokuapp.com/post/{{post.id}}" />
-                    <meta property="og:type" content="article" />
-                    <meta property="og:title" content="{{post.title}}" />
-                    <meta property="og:description" content="{{post.content}}" />
-                    <meta property="og:image" content="" />
                     <div>
                         <br>
                         <p itemprop="description" class="col-xs-12 text-justify _1No0Ndy5xkVdszNItBaiuv"
@@ -54,13 +48,7 @@
                                 bè:</strong>
                             <div>
                                 <!-- API FACEBOOK dùng để chia sẻ -->
-                                <div class="fb-share-button"
-                                    data-href="https://speedmarket.herokuapp.com/post/{{post.id}}"
-                                    data-layout="button_count" data-size="large">
-                                    <a target="_blank"
-                                        href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
-                                        class="fb-xfbml-parse-ignore">
-                                        Chia sẻ</a></div>
+                                <div class="fb-share-button" data-href="https://speedmarket.herokuapp.com/post/{{post.id}}" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
                                 <a class="button__A-fZIMtR iINXMo"><img alt="messenger"
                                         src="https://static.chotot.com/storage/chotot-icons/svg/circle-messenger.svg"
                                         height="40" width="40"></a>
