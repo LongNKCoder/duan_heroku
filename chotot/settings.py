@@ -35,7 +35,7 @@ DEBUG = False
 LOGIN_URL = '/users/login'
 LOGIN_REDIRECT_URL = '/timraovat'
 LOGOUT_REDIRECT_URL = '/'
-ALLOWED_HOSTS = ['https://speedmarket.herokuapp.com/']
+ALLOWED_HOSTS = ['speedmarket.herokuapp.com']
 
 
 # Application definition
