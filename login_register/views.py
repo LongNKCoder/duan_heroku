@@ -3,7 +3,7 @@ from django.contrib.auth.views import LoginView,PasswordChangeView,PasswordReset
 from django.http import HttpResponse
 from login_register.models import Profile
 from post.models import Post
-from login_register.forms import ProfileForm,UserForm,UpdateProfileForm,UpdateUserForm
+from login_register.forms import ProfileForm,UserForm,UpdateProfileForm,UpdateUserForm,UpdatePasswordForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import DetailView,UpdateView
 from django.contrib.auth.models import User
@@ -27,25 +27,28 @@ class ProfileView(DetailView):
         context = super(ProfileView, self).get_context_data(**kwargs)
         context['form_profile'] = UpdateProfileForm()
         context['form_user'] = UpdateUserForm()
+        context['form_password'] = UpdatePasswordForm()
         context['posts'] = Post.objects.filter(user__id=self.kwargs.get('pk')).order_by('-update_date')
         return context
     def post(self, request, *args, **kwargs):
         user_form = UpdateUserForm(data=request.POST)
         profile_form = UpdateProfileForm(data=request.POST)
+        password_form = UpdatePasswordForm(data=request.POST)
+        user = User.objects.get(pk=request.user.id)
         if user_form.is_valid() and profile_form.is_valid():
-            user = User.objects.get(pk=request.user.id)
             user.profile.address = profile_form.cleaned_data['address'] if profile_form.cleaned_data['address'] else user.profile.address
             profile = user.profile
             profile.pic = request.FILES.get('pic') if request.FILES.get('pic') else profile.pic
             user.first_name = user_form.cleaned_data['first_name'] if user_form.cleaned_data['first_name'] else user.first_name
             user.last_name = user_form.cleaned_data['last_name'] if user_form.cleaned_data['last_name'] else user.last_name
-            user.set_password(user_form.cleaned_data['password'])
             user.save()
             profile.save()
-            return redirect('login_register:current')
-        else:
-            return HttpResponse('Password không đúng')
-
+            # return redirect('login_register:current')
+        if password_form.is_valid():
+            user.set_password(password_form.cleaned_data['password'])
+            user.save()
+            # return redirect('login_register:current')
+        return redirect('login_register:current')
 
 class CurrentProfileView(LoginRequiredMixin, ProfileView):
     context_object_name = 'nguoidung'

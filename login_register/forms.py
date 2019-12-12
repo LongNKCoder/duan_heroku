@@ -50,22 +50,39 @@ class ProfileForm(forms.ModelForm):
             raise forms.ValidationError("Số điện thọai của bạn không hợp lệ, phải đăng ký bằng số diện thoại di động")
 
 class UpdateUserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('first_name','last_name')
+        widgets = {
+            # 'password': forms.PasswordInput(attrs={'class': 'form-control'}),
+            # 're_password': forms.PasswordInput(attrs={'class': 'form-control'}),
+        }
+    # def clean(self):
+    #     all_clean_data = super().clean()
+    #     password = all_clean_data['password']
+    #     re_password = all_clean_data['re_password']
+
+    #     if password != re_password :
+    #         raise forms.ValidationError("Password bạn nhập chưa đúng")
+
+
+class UpdatePasswordForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
     re_password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
     class Meta:
         model = User
-        fields = ('password','re_password','first_name','last_name')
+        fields = ('password','re_password')
         widgets = {
             'password': forms.PasswordInput(attrs={'class': 'form-control'}),
             're_password': forms.PasswordInput(attrs={'class': 'form-control'}),
         }
-    def clean(self):
-        all_clean_data = super().clean()
-        password = all_clean_data['password']
-        re_password = all_clean_data['re_password']
+        def clean(self):
+            all_clean_data = super().clean()
+            password = all_clean_data['password']
+            re_password = all_clean_data['re_password']
 
-        if password != re_password :
-            raise forms.ValidationError("Password bạn nhập chưa đúng")
+            if password != re_password :
+                raise forms.ValidationError("Password bạn nhập chưa đúng")
 
 class UpdateProfileForm(forms.ModelForm):
     class Meta:
