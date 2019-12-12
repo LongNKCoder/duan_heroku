@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="{% static "css/text.css"%}">
 {% endblock %}
 {% block body_block%}
+{% if nguoidung.is_active %}
 <div class="main-content">
   <div class="container WrapperContainer">
     <div class="breadcrumWrapper">
@@ -195,4 +196,9 @@
       </div>
     </div>
   </div>
+  {% else %}
+  <div class="main-content">
+    <h1>NGƯỜI DÙNG NÀY KHÔNG TỒN TẠI</h1>
+  </div>
+  {% endif %}
 {% endblock %}

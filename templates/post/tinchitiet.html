@@ -11,6 +11,7 @@
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v5.0"></script>
 <main class="App__Main-fcmPPF dlWmGF">
     <article style="background-color: #f4f4f4;">
+        {% if post.state != 'close' and post.user.is_active%}
         <div class="container _1OmYs5J4aYBAERDzg-6W8a">
             <div class="row hKeDdA_G7No3HepOClD8G">
                 <div class="iltDBORq0FT_OjmouT7Ui">
@@ -172,6 +173,11 @@
                 </div>
             </div>
         </div>
+        {% else %}
+        <div class="container">
+            <h1>BÀI VIẾT NÀY KHÔNG TỒN TẠI </h1>
+        </div>
+        {% endif %}
     </article>
 </main>
 
