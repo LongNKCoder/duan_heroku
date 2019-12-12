@@ -147,9 +147,6 @@ nav.navbar {
 
 .panel.panel-small {
   width      : 950px !important;
-  left       : 15000px !important;
-  height     : 620px;
-  margin     : 155px;
   margin-left: 145px;
 
 }
