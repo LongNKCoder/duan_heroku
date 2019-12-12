@@ -3,6 +3,7 @@ from django.views.generic import ListView,DetailView,CreateView,UpdateView,Delet
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from . import models,form
+from django.db.models import Q 
 
 @login_required()
 def post(request):
@@ -24,9 +25,9 @@ class PostListView(ListView):
         filter_type = self.request.GET.get('type') or ''
         filter_category = self.request.GET.get('category') or ''
         order_by = self.request.GET.get('order_by') or '?'
-        new_context = models.Post.objects.filter(
+        new_context = models.Post.objects.filter(user__is_active__exact='True',
             title__contains=filter_title,category__name__contains=filter_category,
-            brand__name__contains=filter_brand,type_post__contains=filter_type).order_by(order_by)
+            brand__name__contains=filter_brand,type_post__contains=filter_type).exclude(state='close').order_by(order_by)
         return new_context
     def get_context_data(self, **kwargs):
         context = super(PostListView, self).get_context_data(**kwargs)
